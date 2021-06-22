@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import MenuArea from "./Containers/MenuArea";
+import HeadingArea from "./Containers/HeadingArea";
+import "./App.css"
+import BodyArea from "./Containers/BodyArea";
+import SideMenu from "./Containers/SideMenu";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    allCoins: [],
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/coins")
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.setState({ allCoins: data })
+      console.log("this worked")
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <HeadingArea />
+        <MenuArea />
+        <SideMenu />
+        <br></br>
+        <BodyArea coinData={this.state.allCoins}/>
+
+      </div>
+    )
+  }
 }
-
-export default App;
