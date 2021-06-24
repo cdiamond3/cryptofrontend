@@ -1,26 +1,21 @@
 import React, { Component } from 'react'
-import { Menu } from "semantic-ui-react"
+import { Menu, Card } from "semantic-ui-react"
+import SearchForm from './SearchForm'
 
 export default class MenuArea extends Component {
     state = {}
-
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
+    refreshPage = ()=>{
+        window.location.reload();
+     }
     render() {
         const { activeItem } = this.state
-
         return (
             <div>
-                <Menu pointing secondary>
+                <Menu pointing secondary className="menuArea">
                     <Menu.Item
                         name='home'
                         active={activeItem === 'home'}
-                        onClick={this.handleItemClick}
-                    />
-                    <Menu.Item
-                        name='All Coins'
-                        active={activeItem === 'All Coins'}
-                        onClick={this.handleItemClick}
+                        onClick={this.refreshPage}
                     />
                     <Menu.Menu position='right'>
                         <Menu.Item
@@ -30,6 +25,7 @@ export default class MenuArea extends Component {
                         />
                     </Menu.Menu>
                 </Menu>
+                
             </div>
         )
     }

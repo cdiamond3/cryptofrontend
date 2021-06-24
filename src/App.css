@@ -2,8 +2,27 @@
   text-align: center;
   padding: 1%;
   margin: 1%;
-  background-color: rgb(144, 206, 87);
+  background: linear-gradient(45deg, #b9eef0e5, #9ae5e7e5, #7de5e9e5, #51e4e9e5, #2ccacfe5,#e4e3a1e5, #e4e27ee5, #f0ed56e5,#b9eef0e5, #9ae5e7e5,#7de5e9e5, #51e4e9e5, #2ccacfe5,#e4e3a1e5, #e4e27ee5, #f0ed56e5);
+  background-size: 15000%, 15000%;
+  position: relative;
+  animation: change 30s ease-in infinite;
 }
+
+
+
+
+@keyframes change {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
 
 .testMenu {
   background-color: aqua;
@@ -16,20 +35,73 @@
   flex-wrap: wrap;
 }
 
-.cardgroup {
-  background-color: rgba(255, 255, 255, 0.664);
+.cardgroup-positive {
+  background-color: rgba(74, 255, 2, 0.89);
   display: flex;
+  padding: 1rem;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 15%;
+  /* padding: 1rem; */
+}
+
+.cardgroup-negative {
+  background-color: rgb(197, 35, 35);
+  display: flex;
+  padding: 1rem;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 15%;
 }
 
 .bodyarea1 {
   display: flex;
-  
 }
 
 .sideMenu {
   padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 15%;
+  transition: .025s;
 }
 
-.coinsImage {
-  size: 12%;
+.sideMenu:hover {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 15%;
+  box-shadow: rgb(255, 0, 0);
 }
+
+.contentForCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ui.card .meta, .ui.cards>.card .meta {
+  padding: 10px;
+}
+
+.ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
+  font-weight: 700;
+  font-size: 3.28571429em;
+  margin-top: -.21425em;
+  line-height: 1.28571429em;
+}
+
+.ui.card3.card3, .ui.cards>.card3.card3 {
+  max-width: 50%;
+  margin-left: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.portfolioCard {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+

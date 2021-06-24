@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Menu, Header } from "semantic-ui-react"
+import { Menu, Header, Card } from "semantic-ui-react"
+import MyPortfolio from './MyPortfolio'
 
 export default class MenuArea extends Component {
     state = {}
@@ -35,6 +36,42 @@ export default class MenuArea extends Component {
                         <a>binance.us</a>
                     </Menu.Item>
                 </Menu>
+                <Menu vertical>
+                    <Menu.Item
+                        name='promotions'
+                        active={activeItem === 'promotions'}
+                        onClick={this.handleItemClick}
+                    >
+                        <Header as='h4'>Investor Advice</Header>
+                    </Menu.Item>
+                    <Menu.Item
+                        name='promotions'
+                        active={activeItem === 'promotions'}
+                        onClick={this.handleItemClick}
+                    >
+                        <Header as='h4'>Doge Coin</Header>
+                        <p>More Than A Meme!</p>
+                    </Menu.Item>
+                    <Menu.Item
+                        name='promotions'
+                        active={activeItem === 'promotions'}
+                        onClick={this.handleItemClick}
+                    >
+                        <Header as='h4'>Paper Hands:</Header>
+                        <p>HODL AND ACT LIKE YOU WANT THE DIPS!</p>
+                    </Menu.Item>
+                    <Menu.Item
+                        name='promotions'
+                        active={activeItem === 'promotions'}
+                        onClick={this.handleItemClick}
+                    >
+                        <Header as='h4'>New Buyers!</Header>
+                        <p>IT'S JUST AN 80% DROP! CALM DOWN!</p>
+                    </Menu.Item>
+                </Menu>
+                <Card className="card4">
+                    <MyPortfolio userInput={this.props.userInput} coinInfo={this.props.coinInfo} coin={this.props.coin}/>
+                </Card>
             </div>
         )
     }
